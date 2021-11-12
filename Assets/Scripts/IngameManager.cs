@@ -34,13 +34,14 @@ public class IngameManager : MonoBehaviour
         timer = timer_start;
         map_elements.AddRange(GameObject.FindGameObjectsWithTag("MAP_ELEMENT"));
         scenename = SceneManager.GetActiveScene().name;
-        player_car = GameObject.FindGameObjectWithTag("Player");
         Display_Track_Name();
         car_selection.AddRange(GameObject.FindGameObjectsWithTag("Player"));
         foreach (var item in car_selection)
         {
             if (!item.name.Contains(GameObject.FindGameObjectWithTag("Property_Fetcher").GetComponent<Game_Properties>().selected_car))
                 item.SetActive(false);
+            else
+                player_car = item;
         }
     }
 
@@ -79,7 +80,7 @@ public class IngameManager : MonoBehaviour
     private void Display_Track_Name()
     {
         if (map_name_display != null)
-            map_name_display.text = ("T: " + scenename).ToString();
+            map_name_display.text = ("Track: " + scenename).ToString();
         else
             Debug.LogError("VAR UNASSIGNED: map_name_display");
     }
@@ -91,7 +92,7 @@ public class IngameManager : MonoBehaviour
             player_car.GetComponent<Car_Vehicle_Movement>().deceleration_force *= 200;
             player_car.GetComponent<Car_Vehicle_Movement>().steer_angle = 0;
             player_car.GetComponent<Car_Vehicle_Movement>().engine_force = 0;
-            canvasmanager.timer_display.text = $"Time: {timer} seconds!".ToString();
+            canvasmanager.timer_display.text = $"Time: {Mathf.Round(timer)} seconds!".ToString();
         }
     }
 

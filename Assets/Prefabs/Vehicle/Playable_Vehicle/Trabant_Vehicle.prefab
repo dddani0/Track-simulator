@@ -666,7 +666,7 @@ MonoBehaviour:
   brake_torque: 1500
   deceleration_force: 1000
   steer_angle: 25
-  liftCoeffecient: -300
+  liftCoeffecient: -5
   speed: 0
   WheelL: {fileID: 7819762106539543503}
   WheelR: {fileID: 1525196336116485167}

@@ -43,3 +43,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4d4159aa7c6e9944bbd0bc2f93b518b4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  selected_car: Trabant_Vehicle

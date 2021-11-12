@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class _Game_Manager : MonoBehaviour
 {
+    [Tooltip("Stores global variables through multiple scenes, for convenient access.")]
     public GameObject property_fetcher;
 
     private void Start()
