@@ -45,10 +45,6 @@ public class Car_Vehicle_Movement : MonoBehaviour
         Drive_Steer_Drift();
     }
 
-    private void Update()
-    {
-
-    }
 
     private void Anti_Roll_Bar()
     {
@@ -119,6 +115,7 @@ public class Car_Vehicle_Movement : MonoBehaviour
     {
         player_vertical_input = Input.GetAxisRaw("Vertical");
         player_horizontal_input = Input.GetAxisRaw("Horizontal");
+        GetComponent<Car_Vehicle_Miscellaneous>()._player_vertical_input = player_vertical_input;
     }
     private void Vehicle_Down_Force()
     {

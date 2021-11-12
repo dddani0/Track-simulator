@@ -3,7 +3,11 @@
 --- !u!78 &1
 TagManager:
   serializedVersion: 2
-  tags: []
+  tags:
+  - MAP_ELEMENT
+  - Ingame_Manager
+  - Property_Fetcher
+  - Car_Selection_Manager
   layers:
   - Default
   - TransparentFX
