@@ -32,8 +32,7 @@ public class Car_Vehicle_Movement : MonoBehaviour
 
     void Start()
     {
-        vehicle_rigidbody = GetComponent<Rigidbody>();
-        vehicle_rigidbody.centerOfMass += new Vector3(0f, 0f, 1.0f);
+        Evaluate_Default_Properties_Variables();
     }
     private void FixedUpdate()
     {
@@ -45,9 +44,10 @@ public class Car_Vehicle_Movement : MonoBehaviour
         Drive_Steer_Drift();
     }
 
-    private void Update()
+    private void Evaluate_Default_Properties_Variables()
     {
-
+        vehicle_rigidbody = GetComponent<Rigidbody>();
+        vehicle_rigidbody.centerOfMass += new Vector3(0f, 0f, 1.0f);
     }
 
     private void Anti_Roll_Bar()
@@ -119,6 +119,7 @@ public class Car_Vehicle_Movement : MonoBehaviour
     {
         player_vertical_input = Input.GetAxisRaw("Vertical");
         player_horizontal_input = Input.GetAxisRaw("Horizontal");
+        GetComponent<Car_Vehicle_Miscellaneous>()._player_vertical_input = player_vertical_input;
     }
     private void Vehicle_Down_Force()
     {
