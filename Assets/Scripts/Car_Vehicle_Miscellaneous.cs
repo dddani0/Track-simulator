@@ -22,6 +22,22 @@ public class Car_Vehicle_Miscellaneous : MonoBehaviour
 
     private void Start()
     {
+        Evaluate_Default_Properties_Variables();
+    }
+
+    private void Update()
+    {
+        Switch_Camera_State();
+        Switch_Tail_Light_State();
+    }
+
+    private void LateUpdate()
+    {
+        Switch_Headlight_State();
+    }
+
+    private void Evaluate_Default_Properties_Variables()
+    {
         ingame_Manager = GameObject.FindGameObjectWithTag("Ingame_Manager");
         for (int i = 0; i < tail_lamps.Length; i++)
         {
@@ -38,18 +54,7 @@ public class Car_Vehicle_Miscellaneous : MonoBehaviour
         }
     }
 
-    private void Update()
-    {
-        Camera_Pov_Switch();
-        Fetch_Headlight_Information_To_Display();
-    }
-
-    private void LateUpdate()
-    {
-        Switch_Headlight_State();
-    }
-
-    private void Camera_Pov_Switch()
+    private void Switch_Camera_State()
     {
         if (Input.GetKeyDown(camera_switch_button))
         {
@@ -92,19 +97,21 @@ public class Car_Vehicle_Miscellaneous : MonoBehaviour
         }
     }
 
-    private void Fetch_Headlight_Information_To_Display()
+    private void Switch_Tail_Light_State()
     {
         switch (_player_vertical_input < 0)
         {
             case true:
-                //Try somekind of loop, but only go thru the loop if bool allows
-                //Bool = break function
-                tail_lamps[0].SetActive(true);
-                tail_lamps[1].SetActive(true);
+                foreach (var item in tail_lamps)
+                {
+                    item.SetActive(true);
+                }
                 break;
             case false:
-                tail_lamps[0].SetActive(false);
-                tail_lamps[1].SetActive(false);
+                foreach (var item in tail_lamps)
+                {
+                    item.SetActive(false);
+                }
                 break;
         }
     }

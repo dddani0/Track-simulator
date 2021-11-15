@@ -25,6 +25,11 @@ public class Showcase_Vehicle : MonoBehaviour
 
     private void FixedUpdate()
     {
+        Change_Rotation_Value();
+    }
+
+    private void Change_Rotation_Value()
+    {
         if (this.gameObject.activeInHierarchy)
         {
             Set_Rotation_Value();

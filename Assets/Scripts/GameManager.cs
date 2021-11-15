@@ -10,7 +10,7 @@ public class GameManager : MonoBehaviour
         if (SceneManager.GetSceneByName(scenename) != null)
             SceneManager.LoadScene(scenename);
         else
-            Debug.LogError("Ilyen Scene nem létezik!");
+            Debug.LogError($"VAR NULL: {scenename} is non-existant.");
     }
 
     public void Change_Selected_Car(int delta_num)

@@ -11,6 +11,12 @@ public class Canvas_Manager : MonoBehaviour
 
     public void Set_Variable_In_Animation(GameObject gui_temp, string _action, string var_name, string var_value)
     {
+        //Set animation variable without hassle
+        //GameObject gui_temp: the UI gameobject, which must have an attached animator component
+        //string _action: type of the action parameter
+        //string var_name: action parameter's name
+        //string var_value: new value of the action parameter
+
         switch (_action)
         {
             case "SetTrigger":

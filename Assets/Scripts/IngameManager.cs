@@ -31,18 +31,7 @@ public class IngameManager : MonoBehaviour
 
     private void Start()
     {
-        timer = timer_start;
-        map_elements.AddRange(GameObject.FindGameObjectsWithTag("MAP_ELEMENT"));
-        scenename = SceneManager.GetActiveScene().name;
-        Display_Track_Name();
-        car_selection.AddRange(GameObject.FindGameObjectsWithTag("Player"));
-        foreach (var item in car_selection)
-        {
-            if (!item.name.Contains(GameObject.FindGameObjectWithTag("Property_Fetcher").GetComponent<Game_Properties>().selected_car))
-                item.SetActive(false);
-            else
-                player_car = item;
-        }
+        Evaluate_Default_Properties_Variables();
     }
 
     private void Update()
@@ -60,6 +49,22 @@ public class IngameManager : MonoBehaviour
         Restart_Run();
         Pause_Game();
         Player_Finish_Check();
+    }
+
+    private void Evaluate_Default_Properties_Variables()
+    {
+        timer = timer_start;
+        map_elements.AddRange(GameObject.FindGameObjectsWithTag("MAP_ELEMENT"));
+        scenename = SceneManager.GetActiveScene().name;
+        Display_Track_Name();
+        car_selection.AddRange(GameObject.FindGameObjectsWithTag("Player"));
+        foreach (var item in car_selection)
+        {
+            if (!item.name.Contains(GameObject.FindGameObjectWithTag("Property_Fetcher").GetComponent<Game_Properties>().selected_car))
+                item.SetActive(false);
+            else
+                player_car = item;
+        }
     }
 
     private void Restart_Run()
@@ -100,21 +105,6 @@ public class IngameManager : MonoBehaviour
     {
         if (Input.GetKeyDown(pause_game_button))
             SceneManager.LoadScene("Track_Select");
-        //switch (isPaused)
-        //{
-        //    case true:
-        //        if (Input.GetKeyDown(pause_game_button))
-        //        {
-        //            isPaused = false;
-        //        }
-        //        break;
-        //    case false:
-        //        if (Input.GetKeyDown(pause_game_button))
-        //        {
-        //            isPaused = true;
-        //        }
-        //        break;
-        //}
     }
 
     private void Speed_O_Meter(float _speed)

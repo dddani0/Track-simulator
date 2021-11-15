@@ -9,6 +9,7 @@ public class _Game_Manager : MonoBehaviour
 
     private void Start()
     {
+        QualitySettings.vSyncCount = 0;
         GameObject temp_inst;
         if (GameObject.FindGameObjectWithTag("Property_Fetcher") == null)
         {
