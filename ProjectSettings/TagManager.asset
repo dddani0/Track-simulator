@@ -5,9 +5,9 @@ TagManager:
   serializedVersion: 2
   tags:
   - MAP_ELEMENT
-  - Ingame_Manager
-  - Property_Fetcher
-  - Car_Selection_Manager
+  - ShowcaseCar
+  - CarManager
+  - IngameManager
   layers:
   - Default
   - TransparentFX
