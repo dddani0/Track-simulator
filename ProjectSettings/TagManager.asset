@@ -5,9 +5,12 @@ TagManager:
   serializedVersion: 2
   tags:
   - MAP_ELEMENT
+  - ShowcaseCar
+  - CarManager
+  - IngameManager
+  - FinishLine
   - Ingame_Manager
-  - Property_Fetcher
-  - Car_Selection_Manager
+  - CinemaCam
   layers:
   - Default
   - TransparentFX
