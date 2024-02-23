@@ -12,7 +12,6 @@ namespace Car
         [FormerlySerializedAs("decceleration")] public float deceleration;
         public float steer;
         public float brake;
-        public bool fourWheelDrive;
 
         public string Name
         {
@@ -48,12 +47,6 @@ namespace Car
         {
             get => brake;
             set => brake = value;
-        }
-
-        public bool FourWheelDrive
-        {
-            get => fourWheelDrive;
-            set => fourWheelDrive = value;
         }
         
     }

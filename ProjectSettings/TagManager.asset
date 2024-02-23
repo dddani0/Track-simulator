@@ -8,6 +8,9 @@ TagManager:
   - ShowcaseCar
   - CarManager
   - IngameManager
+  - FinishLine
+  - Ingame_Manager
+  - CinemaCam
   layers:
   - Default
   - TransparentFX

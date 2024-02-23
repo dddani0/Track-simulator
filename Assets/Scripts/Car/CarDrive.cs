@@ -1,5 +1,6 @@
 ﻿using System;
 using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.Serialization;
 
 namespace Car
@@ -25,9 +26,11 @@ namespace Car
         public WheelCollider rearLeftDrive;
         [FormerlySerializedAs("rear_right_drive")]
         public WheelCollider rearRightDrive;
+        //
+        public  delegate void CarEvent();
 
-        public bool isActivated;
-
+        public static event CarEvent FinishEvent;
+        
         private void Start()
         {
             if (carOrigin is null)
@@ -38,7 +41,6 @@ namespace Car
         
         private void FixedUpdate()
         {
-            if (!isActivated) return;
             DownForce();
             AntiRollBar();
             //
@@ -98,11 +100,8 @@ namespace Car
         {
             rearLeftDrive.motorTorque = verticalInput * carOrigin.Acceleration;
             rearRightDrive.motorTorque = verticalInput * carOrigin.Acceleration;
-            //optional four wheel drive
-            frontLeftDrive.motorTorque =
-                carOrigin.fourWheelDrive ? verticalInput * carOrigin.Acceleration : frontLeftDrive.motorTorque;
-            frontRightDrive.motorTorque =
-                carOrigin.fourWheelDrive ? verticalInput * carOrigin.Acceleration : frontRightDrive.motorTorque;
+            frontRightDrive.motorTorque = verticalInput * carOrigin.Acceleration;
+            frontLeftDrive.motorTorque = verticalInput * carOrigin.Acceleration;
 
             switch (frontRightDrive.motorTorque != 0)
             {
@@ -137,5 +136,10 @@ namespace Car
 
         public float CarVelocity() => _vehicleRigidbody.velocity.magnitude;
         public float VerticalInput() => verticalInput;
+
+        private void OnTriggerEnter(Collider other)
+        {
+            if (other.CompareTag("FinishLine")) FinishEvent?.Invoke();
+        }
     }
 }

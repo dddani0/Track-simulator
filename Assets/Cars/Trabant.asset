@@ -13,9 +13,8 @@ MonoBehaviour:
   m_Name: Trabant
   m_EditorClassIdentifier: 
   name: Trabant
-  description: Old vehicle manufactured by DDR. Honecker's classic.
+  description: Old vehicle manufactured in the German Democratic Republic.
   acceleration: 1200
-  decceleration: 1000
+  deceleration: 1000
   steer: 35
   brake: 1500
-  fourWheelDrive: 1

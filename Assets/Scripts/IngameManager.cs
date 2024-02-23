@@ -1,11 +1,28 @@
-﻿using System;
-using System.Linq;
-using Car;
+﻿using Car;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using Cinemachine;
+
+internal class Timer
+{
+    private float _currentTimer;
+
+    public Timer()
+    {
+    }
+
+    public void IncreaseTime()
+    {
+        _currentTimer += Time.deltaTime;
+    }
+
+    public float GetTimer() => _currentTimer;
+}
 
 public class IngameManager : MonoBehaviour
 {
+    private CinemachineVirtualCamera _camera;
+    //
     private CarDrive[] _cars;
 
     private CarDrive _playerCar;
@@ -15,33 +32,44 @@ public class IngameManager : MonoBehaviour
 
     public KeyCode restartRunButton;
 
+    public KeyCode headlight;
+
     //
     private bool _isFinished = false;
 
     //
-    [SerializeField] private float timer;
+    private Timer _timer;
 
     private void Start()
     {
-        timer = 0;
+        CarDrive.FinishEvent += () => _isFinished = true;
+        _timer = new Timer();
         _cars = new CarDrive[GameObject.FindGameObjectsWithTag("Player")
-            .Length]; //ezt linq expressionbe szeretném átírni
+            .Length];
         for (var index = 0; index < _cars.Length; index++)
         {
             _cars[index] = GameObject.FindGameObjectsWithTag("Player")[index].GetComponent<CarDrive>();
         }
 
-        Debug.Log(PlayerPrefs.GetString("car"));
         foreach (var car in _cars)
         {
             if (car.carOrigin.name.Contains(PlayerPrefs.GetString("car"))) _playerCar = car;
             else car.gameObject.SetActive(false);
         }
+
+        _camera = GameObject.FindGameObjectWithTag("CinemaCam").GetComponent<CinemachineVirtualCamera>();
+        var playerGameObject = _playerCar.gameObject;
+        _camera.Follow = playerGameObject.transform;
+        _camera.LookAt = playerGameObject.transform;
     }
 
     private void Update()
     {
         Timer();
+        _playerCar.enabled = IsVehicleEnabled();
+
+        return;
+        bool IsVehicleEnabled() => _isFinished is false;
     }
 
     private void LateUpdate()
@@ -59,7 +87,7 @@ public class IngameManager : MonoBehaviour
     private void Timer()
     {
         if (!_isFinished)
-            timer += (1 * Time.fixedDeltaTime);
+            _timer.IncreaseTime();
     }
 
     private void Pause()
@@ -70,4 +98,6 @@ public class IngameManager : MonoBehaviour
 
 
     public int Speedometer() => (int)(_playerCar.CarVelocity() * 3.6f);
+
+    public float GetTimerValue() => _timer.GetTimer();
 }

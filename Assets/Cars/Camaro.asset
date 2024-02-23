@@ -14,8 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   name: Camaro
   description: Muscle car.
-  acceleration: 800
-  decceleration: 1300
+  acceleration: 1000
+  deceleration: 1300
   steer: 50
   brake: 1550
-  fourWheelDrive: 0

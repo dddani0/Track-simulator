@@ -13,6 +13,9 @@ public class CarSelectionManager : MonoBehaviour
     public float carRotationSpeed;
 
     private int _carIdx = 0;
+    //
+    public TMPro.TextMeshProUGUI carNameElement;
+    public TMPro.TextMeshProUGUI carDescriptionElement;
 
     private void Start()
     {
@@ -24,6 +27,7 @@ public class CarSelectionManager : MonoBehaviour
 
         _cars[_carIdx].gameObject.SetActive(true);
         SetCar(_carIdx);
+        UpdateCarDisplay();
     }
 
     public void IncrementCarDisplay()
@@ -33,6 +37,7 @@ public class CarSelectionManager : MonoBehaviour
         if (_carIdx > _cars.Length - 1) _carIdx = 0;
         _cars[_carIdx].gameObject.SetActive(true);
         SetCar(_carIdx);
+        UpdateCarDisplay();
     }
 
     public void DecrementCarDisplay()
@@ -42,6 +47,7 @@ public class CarSelectionManager : MonoBehaviour
         if (_carIdx < 0) _carIdx = _cars.Length - 1;
         _cars[_carIdx].gameObject.SetActive(true);
         SetCar(_carIdx);
+        UpdateCarDisplay();
     }
 
     private void SetCar(int carIndex)
@@ -52,8 +58,15 @@ public class CarSelectionManager : MonoBehaviour
     public void SelectCurrentCar()
     {
         PlayerPrefs.SetString("car", GetSelectedCar().carOrigion.name);
+        PlayerPrefs.Save();
         SceneManager.LoadScene("TrackSelect");
     }
 
-    public CarShowcase GetSelectedCar() => _selectedCar;
+    private void UpdateCarDisplay()
+    {
+        carNameElement.text = GetSelectedCar().carOrigion.name;
+        carDescriptionElement.text = GetSelectedCar().carOrigion.description;
+    }
+
+    private CarShowcase GetSelectedCar() => _selectedCar;
 }
