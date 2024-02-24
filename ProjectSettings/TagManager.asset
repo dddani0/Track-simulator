@@ -4,13 +4,13 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - MAP_ELEMENT
   - ShowcaseCar
   - CarManager
   - IngameManager
   - FinishLine
   - Ingame_Manager
   - CinemaCam
+  - FinishPanelTimerText
   layers:
   - Default
   - TransparentFX

@@ -24,6 +24,8 @@ public class CanvasManager : MonoBehaviour
 
     private void EnableVictoryScreen()
     {
-        victoryPanelElement.SetActive(true);
+        victoryPanelElement.gameObject.SetActive(true);
+        GameObject.FindGameObjectWithTag("FinishPanelTimerText").GetComponent<TMPro.TextMeshProUGUI>().text =
+            $"Completed: {Mathf.RoundToInt(_ingameManager.GetTimerValue())} s.";
     }
 }
