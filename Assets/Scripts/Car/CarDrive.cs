@@ -140,6 +140,7 @@ namespace Car
         private void OnTriggerEnter(Collider other)
         {
             if (other.CompareTag("FinishLine")) FinishEvent?.Invoke();
+            enabled = false;
         }
     }
 }

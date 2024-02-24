@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: Camaro
   m_EditorClassIdentifier: 
   name: Camaro
-  description: Muscle car.
+  description: American styled muscle car from the 60's.
   acceleration: 1000
   deceleration: 1300
   steer: 50

@@ -12,4 +12,9 @@ public class ButtonManager : MonoBehaviour
     {
         Application.Quit();
     }
+
+    public void LoadSite(string url)
+    {
+        Application.OpenURL(url);
+    }
 }

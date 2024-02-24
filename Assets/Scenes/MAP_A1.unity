@@ -15468,7 +15468,7 @@ GameObject:
   - component: {fileID: 443664288}
   m_Layer: 5
   m_Name: TimeText
-  m_TagString: Untagged
+  m_TagString: FinishPanelTimerText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16880,7 +16880,7 @@ GameObject:
   - component: {fileID: 627524186}
   m_Layer: 5
   m_Name: FinishPanel
-  m_TagString: Untagged
+  m_TagString: FinishPanelTimerText
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -16901,7 +16901,7 @@ RectTransform:
   - {fileID: 1646188437}
   - {fileID: 1440457718}
   m_Father: {fileID: 960975969}
-  m_RootOrder: 0
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -16921,7 +16921,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 0.7137255}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.8862745}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -41372,8 +41372,8 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 627524183}
   - {fileID: 2042038381}
+  - {fileID: 627524183}
   m_Father: {fileID: 0}
   m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -47809,7 +47809,7 @@ Mesh:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: pb_Mesh-5336
+  m_Name: pb_Mesh-13954
   serializedVersion: 10
   m_SubMeshes:
   - serializedVersion: 2
@@ -62806,7 +62806,7 @@ RectTransform:
   - {fileID: 770238613}
   - {fileID: 1647138742}
   m_Father: {fileID: 960975969}
-  m_RootOrder: 1
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
@@ -64706,7 +64706,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3047640732503885446, guid: 22e422acd9a6b8542914e226979bc2eb, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -66.54
+      value: -66.4
       objectReference: {fileID: 0}
     - target: {fileID: 3047640732503885446, guid: 22e422acd9a6b8542914e226979bc2eb, type: 3}
       propertyPath: m_LocalPosition.y
@@ -64714,7 +64714,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3047640732503885446, guid: 22e422acd9a6b8542914e226979bc2eb, type: 3}
       propertyPath: m_LocalPosition.z
-      value: -154.74
+      value: -155.2
       objectReference: {fileID: 0}
     - target: {fileID: 3047640732503885446, guid: 22e422acd9a6b8542914e226979bc2eb, type: 3}
       propertyPath: m_LocalRotation.w
